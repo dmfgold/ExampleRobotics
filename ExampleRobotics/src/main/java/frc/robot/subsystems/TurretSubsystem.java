@@ -5,6 +5,7 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import TalonSRX;
 
 public class TurretSubsystem extends SubsystemBase {
   /** Creates a new ExampleSubsystem. */
@@ -23,3 +24,5 @@ public class TurretSubsystem extends SubsystemBase {
 }
 
 //Dorcas and Lucas
+
+TalonSRX horizontalTurretMotor = new TalonSRX(0);
