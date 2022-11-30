@@ -33,6 +33,8 @@ public class RobotContainer {
   private final ShooterSubsystem shooterSubsystem;
   private final IndexerSubsystem indexerSubsystem;
 
+  double speed = 0;
+
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
 
@@ -55,8 +57,10 @@ public class RobotContainer {
   private void configureButtonBindings() {
 
     new JoystickButton(operator, Button.kB.value).whenPressed(() -> intakeSubsystem.intakeBall());
-    new JoystickButton(operator, Button.kX.value).whenPressed(() -> shooterSubsystem.shoot());
-    new JoystickButton(operator, Button.kX.value).whenPressed(() -> indexerSubsystem.loadShooter());
+    new JoystickButton(operator, Button.kY.value).whenPressed(() -> shooterSubsystem.shoot(speed));
+    new JoystickButton(operator, Button.kY.value).whenPressed(() -> indexerSubsystem.loadShooter());
+    new JoystickButton(operator, Button.kX.value).whenPressed(() -> speed = 0.5);
+    new JoystickButton(operator, Button.kA.value).whenPressed(() -> speed = 1);
   }
 
   /**
